@@ -2,8 +2,16 @@
 const express = require("express")
 const router = express.Router()
 
+const redirectLogin = (req, res, next) => {
+        if (!req.session.userId ) {
+          res.redirect('/users/login') // redirect to the login page
+        } else { 
+            next (); // move to the next middleware function
+        } 
+    }
+
 //route to organizer home page
-router.get("/home", (req, res) => {
+router.get("/home", redirectLogin, (req, res) => {
     // Query published events
     db.query("SELECT * FROM events WHERE is_published = 1 ORDER BY id DESC", (err, published) => {
         if (err) {
@@ -167,7 +175,7 @@ router.post("/delete/:id", (req, res) => {
 });
 
 //route to organizer bookings page
-router.get("/bookings", function (req, res) {
+router.get("/bookings", redirectLogin, function (req, res) {
     // query the bookings database to get all records in the bookings table, ordered by id descending  so most recent first
     let sqlquery = "SELECT * FROM bookings ORDER BY id DESC"; 
 

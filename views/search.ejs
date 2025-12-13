@@ -1,0 +1,18 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Search</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="mb-4">Search</h1>
+      <%# Form for book searches %>
+      <form action="/attendee/search-result" method="GET">
+        <p>What event are you looking for?</p>
+        <input id="search-box" type="text" name="search_text">
+        <input type="submit" value="Search" >
+      </form>
+    </div>
+  </body>
+</html>

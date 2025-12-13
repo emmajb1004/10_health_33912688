@@ -110,5 +110,25 @@ router.post('/book/:id', (req, res) => {
     });
 });
 
+//route handlers for searches
+router.get('/search',function(req, res, next){
+    res.render("search.ejs")
+});
+
+router.get('/search-result', function (req, res, next) {
+    let sqlquery = "SELECT * FROM events WHERE event_description LIKE ? "
+    let search = ['%' + req.query.search_text + '%']
+    if (!req.query.search_text) {
+        return res.render("search-result.ejs", {searchResults: []});
+    }
+    db.query(sqlquery, search, (err,result) => {
+        if (err) {
+            next(err)
+        }
+        else
+            res.render("search-result.ejs", {searchResults: result})       
+    })
+});
+
 // Export the router object so index.js can access it
 module.exports = router

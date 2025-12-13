@@ -4,6 +4,8 @@
 */
 //overall design/layout of pages reference: https://www.youtube.com/watch?v=1NrHkjlWVhM
 // Set up express, bodyparser and EJS
+const session = require('express-session')
+
 const express = require('express');
 const path = require('path');
 const mysql = require('mysql2');
@@ -16,6 +18,16 @@ app.use(express.json());
 
 app.set('view engine', 'ejs'); // set the app to use ejs for rendering
 app.use(express.static(path.join(__dirname, 'public')));
+
+// Create a session
+app.use(session({
+        secret: 'somerandomstuff',
+        resave: false,
+        saveUninitialized: false,
+        cookie: {
+            expires: 600000
+        }
+    }))
 
 // Define the database connection (callback style, without .env)
 const db = mysql.createPool({
@@ -41,6 +53,9 @@ app.use('/settings', settingsRoutes)
 
 const organizerRoutes = require('./routes/organizer')
 app.use('/organizer', organizerRoutes)
+
+const usersRoutes = require('./routes/users')
+app.use('/users', usersRoutes)
 
 // Make the web application listen for HTTP requests
 app.listen(port, () => {

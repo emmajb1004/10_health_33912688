@@ -2,8 +2,16 @@
 const express = require("express")
 const router = express.Router()
 
+const redirectLogin = (req, res, next) => {
+        if (!req.session.userId ) {
+          res.redirect('/users/login') // redirect to the login page
+        } else { 
+            next (); // move to the next middleware function
+        } 
+    }
+
 //route to site settings page
-router.get('/', (req, res) => {
+router.get('/', redirectLogin, (req, res) => {
     //query database and get most recent record in setings table
     db.query("SELECT * FROM settings ORDER BY id DESC LIMIT 1;", (err, result) => { 
         if (err) {

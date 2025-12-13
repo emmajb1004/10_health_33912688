@@ -41,3 +41,15 @@ CREATE TABLE IF NOT EXISTS settings (
     title VARCHAR(255) NOT NULL,
     settings_description TEXT NOT NULL
 );
+
+-- USERS TABLE
+# Create the users table
+CREATE TABLE IF NOT EXISTS users (
+    id INT AUTO_INCREMENT,
+    username VARCHAR(50) UNIQUE,
+    firstName VARCHAR(50),
+    lastName VARCHAR(50),
+    email VARCHAR(100),
+    hashedPassword VARCHAR(255),
+    PRIMARY KEY (id)
+);
