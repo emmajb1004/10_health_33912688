@@ -5,7 +5,7 @@
 //overall design/layout of pages reference: https://www.youtube.com/watch?v=1NrHkjlWVhM
 // Set up express, bodyparser and EJS
 const session = require('express-session')
-
+require('dotenv').config();
 const express = require('express');
 const path = require('path');
 const mysql = require('mysql2');
@@ -31,10 +31,10 @@ app.use(session({
 
 // Define the database connection (callback style, without .env)
 const db = mysql.createPool({
-    host: 'localhost',
-    user: 'health_app',        // hard-coded username
-    password: 'qwertyuiop',    // hard-coded password
-    database: 'health',
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,        // hard-coded username
+    password: process.env.DB_PASSWORD,    // hard-coded password
+    database: process.env.DB_NAME,
     waitForConnections: true,
     connectionLimit: 10,
     queueLimit: 0,

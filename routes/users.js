@@ -26,8 +26,8 @@ router.post(
   '/registered',
   [
     check('email').isEmail().trim().escape(),
-    check('username').isLength({ min: 5, max: 20 }).trim().escape(),
-    check('password').isLength({min: 8}),
+    check('username').isLength({ min: 4, max: 20 }).trim().escape(),
+    check('password').isLength({min: 4}),
     check('firstName').notEmpty().trim().escape(),
     check('lastName').notEmpty().trim().escape()
   ],
@@ -185,8 +185,8 @@ router.post(
   '/attendee/registered',
   [
     check('email').isEmail().trim().escape(),
-    check('username').isLength({ min: 5, max: 20 }).trim().escape(),
-    check('password').isLength({min: 8}),
+    check('username').isLength({ min: 4, max: 20 }).trim().escape(),
+    check('password').isLength({min: 4}),
     check('firstName').notEmpty().trim().escape(),
     check('lastName').notEmpty().trim().escape()
   ],

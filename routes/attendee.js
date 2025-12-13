@@ -2,7 +2,15 @@
 const express = require("express")
 const router = express.Router()
 
-router.get("/home", (req, res) => {
+const redirectLogin = (req, res, next) => {
+        if (!req.session.userId ) {
+          res.redirect('/users/attendee/login') // redirect to the login page
+        } else { 
+            next (); // move to the next middleware function
+        } 
+    }
+
+router.get("/home", redirectLogin, (req, res) => {
     // Query events
     db.query("SELECT * FROM events WHERE is_published = 1 ORDER BY event_date ASC", (err, events) => {
         if (err) {
