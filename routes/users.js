@@ -75,18 +75,6 @@ router.post(
   }
 )
 ;
- 
-
-// //route handler for listing users
-// router.get('/list', redirectLogin, function (req, res, next) {
-//     let sqlquery = "SELECT * FROM users"
-//     db.query(sqlquery, (err,result) => {
-//         if (err) {
-//             next(err)
-//         }
-//         res.render('users-list.ejs', {users: result})
-//     })
-// })
 
 //route handlers for logging in users
 router.get('/login', function (req, res, next) {
