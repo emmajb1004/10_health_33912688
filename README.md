@@ -13,5 +13,5 @@ This template sets you off in the right direction for your coursework. To get st
 
 Test the app by browsing to the following routes:
 
-* http://localhost:3000
+* http://localhost:8000
 

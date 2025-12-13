@@ -11,7 +11,7 @@ const path = require('path');
 const mysql = require('mysql2');
 
 const app = express();
-const port = 3000;
+const port = 8000;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
