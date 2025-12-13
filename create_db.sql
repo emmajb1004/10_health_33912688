@@ -53,3 +53,15 @@ CREATE TABLE IF NOT EXISTS users (
     hashedPassword VARCHAR(255),
     PRIMARY KEY (id)
 );
+
+-- USERS TABLE
+# Create the attendee-users table
+CREATE TABLE IF NOT EXISTS attendeeUsers (
+    id INT AUTO_INCREMENT,
+    username VARCHAR(50) UNIQUE,
+    firstName VARCHAR(50),
+    lastName VARCHAR(50),
+    email VARCHAR(100),
+    hashedPassword VARCHAR(255),
+    PRIMARY KEY (id)
+);
