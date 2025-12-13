@@ -29,7 +29,7 @@ app.use(session({
         }
     }))
 
-// Define the database connection (callback style, without .env)
+// Define the database connection
 const db = mysql.createPool({
     host: process.env.DB_HOST,
     user: process.env.DB_USER,        // hard-coded username
