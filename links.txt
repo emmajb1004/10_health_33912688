@@ -1,2 +1,11 @@
 home=http://www.doc.gold.ac.uk/usr/302/
 about=http://www.doc.gold.ac.uk/usr/302/about
+search=http://www.doc.gold.ac.uk/usr/302/attendee/search
+organizerHome=http://www.doc.gold.ac.uk/usr/302/organizer/home
+add_event=http://www.doc.gold.ac.uk/usr/302/organizer/events
+bookings=http://www.doc.gold.ac.uk/usr/302/organizer/bookings
+attendeeHome=http://www.doc.gold.ac.uk/usr/302/attendee/home
+loginOrganizer=http://www.doc.gold.ac.uk/usr/302/users/login
+loginAttendee=http://www.doc.gold.ac.uk/usr/302/users/attendee/login
+registerOrganizer=http://www.doc.gold.ac.uk/usr/302/users/register
+registerAttendee=http://www.doc.gold.ac.uk/usr/302/users/attendee/register
