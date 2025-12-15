@@ -2,15 +2,9 @@
 const express = require("express")
 const router = express.Router()
 
-// Detect if running on the VM
-const isVM = process.env.HOSTNAME && process.env.HOSTNAME.includes('doc'); // adjust 'doc' if needed
-
-// Set base path dynamically
-const BASE_PATH = isVM ? '/usr/123' : '';
-
 const redirectLogin = (req, res, next) => {
         if (!req.session.userId ) {
-          res.redirect(`${BASE_PATH}/users/login`) // redirect to the login page
+          res.redirect('../users/login') // redirect to the login page
         } else { 
             next (); // move to the next middleware function
         } 
