@@ -1,7 +1,12 @@
 // Create a new router
 const express = require("express")
 const router = express.Router()
-const BASE_PATH = '';
+
+// Detect if running on the VM
+const isVM = process.env.HOSTNAME && process.env.HOSTNAME.includes('doc'); // adjust 'doc' if needed
+
+// Set base path dynamically
+const BASE_PATH = isVM ? '/usr/123' : '';
 
 const redirectLogin = (req, res, next) => {
         if (!req.session.userId ) {
@@ -190,6 +195,7 @@ router.get("/bookings", redirectLogin, function (req, res) {
         res.render("bookings", { booking: result });
     });
 });
+
 
 // Export the router object so index.js can access it
 module.exports = router
