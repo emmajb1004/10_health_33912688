@@ -1,10 +1,11 @@
 // Create a new router
 const express = require("express")
 const router = express.Router()
+const BASE_PATH = '';
 
 const redirectLogin = (req, res, next) => {
         if (!req.session.userId ) {
-          res.redirect('/users/attendee/login') // redirect to the login page
+          res.redirect(`${BASE_PATH}/users/attendee/login`) // redirect to the login page
         } else { 
             next (); // move to the next middleware function
         } 
